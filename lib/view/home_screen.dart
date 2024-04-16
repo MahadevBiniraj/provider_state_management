@@ -11,7 +11,6 @@ class _HomescreenState extends State<Homescreen> {
   int a = 0;
   @override
   Widget build(BuildContext context) {
-    print("hello");
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
         a++;
