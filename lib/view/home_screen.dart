@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_state_management/controller/homescreencontroller.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -8,17 +10,17 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  int a = 0;
   @override
   Widget build(BuildContext context) {
+    final Providerobj = Provider.of<Homescreencontroller>(context);
+    print("hello${Providerobj.count}");
     return Scaffold(
       floatingActionButton: FloatingActionButton(onPressed: () {
-        a++;
-        setState(() {});
+        Provider.of<Homescreencontroller>(context, listen: false).increment();
       }),
       body: Center(
         child: Text(
-          a.toString(),
+          Providerobj.count.toString(),
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
         ),
       ),
