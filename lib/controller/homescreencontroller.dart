@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Homescreencontroller with ChangeNotifier {
-  int count = 1;
+  int count = 0;
   void increment() {
     count++;
     notifyListeners();
