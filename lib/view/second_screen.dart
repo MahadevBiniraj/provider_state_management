@@ -13,7 +13,7 @@ class _HomescreenState extends State<Secondscreen> {
   @override
   Widget build(BuildContext context) {
     final Providerobj = Provider.of<Homescreencontroller>(context);
-    print("hello${Providerobj.count}");
+    // print("hello${Providerobj.count}");
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -25,11 +25,12 @@ class _HomescreenState extends State<Secondscreen> {
         Provider.of<Homescreencontroller>(context, listen: false).increment();
       }),
       body: Center(
-        child: Text(
-          Providerobj.count.toString(),
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+          child: Consumer<Homescreencontroller>(
+        builder: (context, value, child) => Text(
+          value.count.toString(),
+          style: TextStyle(fontSize: 25),
         ),
-      ),
+      )),
     );
   }
 }

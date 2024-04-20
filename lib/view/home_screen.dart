@@ -27,18 +27,19 @@ class _HomescreenState extends State<Homescreen> {
       }),
       body: Center(
         child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Secondscreen(),
-                ));
-          },
-          child: Text(
-            Providerobj.count.toString(),
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-          ),
-        ),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Secondscreen(),
+                  ));
+            },
+            child: Consumer<Homescreencontroller>(
+              builder: (context, value, child) => Text(
+                value.count.toString(),
+                style: TextStyle(fontSize: 25),
+              ),
+            )),
       ),
     );
   }
